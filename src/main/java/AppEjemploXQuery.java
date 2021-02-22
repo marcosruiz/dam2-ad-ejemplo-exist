@@ -38,7 +38,6 @@ public class AppEjemploXQuery {
         Resource r = iterator.nextResource();
         System.out.println((String)r.getContent());
       }
-      System.out.println("FIN");
 
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
