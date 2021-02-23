@@ -32,6 +32,7 @@ public class AppEjemploXQuery {
       printIterator(xQuery03(collection));
       printIterator(xQuery04(collection));
       printIterator(xQuery05(collection));
+      printIterator(xQuery06(collection));
 
 
     } catch (ClassNotFoundException e) {
@@ -154,7 +155,7 @@ public class AppEjemploXQuery {
   }
 
   // Obtiene el número de empleados que tiene cada departamento y la media del salario redondeada
-  public static ResourceIterator xQueryXX(Collection collection) throws XMLDBException {
+  public static ResourceIterator xQuery06(Collection collection) throws XMLDBException {
     System.out.println();
     System.out.println("xQueryXX");
     System.out.println("========");
@@ -163,7 +164,7 @@ public class AppEjemploXQuery {
     ResourceSet result = xPathQueryService.query("for $dep in distinct-values(/EMPLEADOS/EMP_ROW/DEPT_NO)" +
         "let $cu := count(/EMPLEADOS/EMP_ROW[DEPT_NO=$dep])" +
         "let $sala := round(avg(/EMPLEADOS/EMP_ROW[DEPT_NO=$dep]/SALARIO))" +
-        "return concat('Departamento: ', $dep, '. Num empleados = ', $cu, '. Media salario = = ', $sala)");
+        "return concat('Departamento: ', $dep, '. Num empleados = ', $cu, '. Media salario = ', $sala)");
 
     ResourceIterator iterator = result.getIterator();
 
